@@ -75,7 +75,10 @@ public struct SlidingTabView : View {
     
     /// The height of the selection bar background
     let selectionBarBackgroundHeight: CGFloat
-    
+
+    /// The height of the  padding
+    let verticalPadding: CGFloat
+
     // MARK: init
     
     public init(selection: Binding<Int>,
@@ -89,7 +92,8 @@ public struct SlidingTabView : View {
                 activeTabColor: Color = .clear,
                 selectionBarHeight: CGFloat = 2,
                 selectionBarBackgroundColor: Color = Color.gray.opacity(0.2),
-                selectionBarBackgroundHeight: CGFloat = 1) {
+                selectionBarBackgroundHeight: CGFloat = 1,
+                verticalPadding: CGFloat = 16) {
         self._selection = selection
         self.tabs = tabs
         self.font = font
@@ -102,6 +106,7 @@ public struct SlidingTabView : View {
         self.selectionBarHeight = selectionBarHeight
         self.selectionBarBackgroundColor = selectionBarBackgroundColor
         self.selectionBarBackgroundHeight = selectionBarBackgroundHeight
+        self.verticalPadding = verticalPadding
     }
     
     // MARK: View Construction
@@ -122,7 +127,7 @@ public struct SlidingTabView : View {
                             Spacer()
                         }
                     }
-                    .padding(.vertical, 16)
+                    .padding(.vertical, verticalPadding)
                         .accentColor(
                             self.isSelected(tabIdentifier: tab)
                                 ? self.activeAccentColor
