@@ -107,6 +107,7 @@ public struct SlidingTabView : View {
         self.selectionBarBackgroundColor = selectionBarBackgroundColor
         self.selectionBarBackgroundHeight = selectionBarBackgroundHeight
         self.verticalPadding = verticalPadding
+        self.selectionState = selection.wrappedValue
     }
     
     // MARK: View Construction
